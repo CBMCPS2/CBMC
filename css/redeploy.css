@@ -15,7 +15,7 @@ body {
     width: auto;
     margin-left: auto;
     margin-right: auto;
-    
+
   }
   .sideLogo{
     float: left;
@@ -35,11 +35,11 @@ body {
     min-height: 70px;
     width: 100%;
   }
-  
+
   .navigation-bar ul {
     position: relative;
     padding: 0px;
-    
+
     margin: 0px;
     text-align: center;
     float: top;
@@ -48,7 +48,7 @@ body {
     margin-right: auto;
     background: rgb(15, 1, 29);
   }
-  
+
   .navigation-bar li {
     list-style-type: none;
     padding: 0px;
@@ -57,7 +57,7 @@ body {
     margin-bottom: 4px;
     display: inline;
   }
-  
+
   .navigation-bar li a {
     color: rgb(248, 248, 248);
     font-size: 1.5em;
@@ -82,7 +82,7 @@ body {
 
   .content{
     background-color: #152130;
-    
+
 
   }
   .center {

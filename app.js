@@ -63,7 +63,7 @@ function displayImage(index) {
   imageIndex = (index + gallery.length) % gallery.length;
   const item = gallery[imageIndex];
   const img = dialog.querySelector('.lightbox-image');
-  img.src = item.href;
+  img.src = item.dataset.preview || item.href;
   img.alt = item.dataset.caption;
   dialog.querySelector('#lightbox-title').textContent = `${item.dataset.caption} · ${imageIndex + 1} / ${gallery.length}`;
   dialog.querySelector('[data-original]').href = item.href;
@@ -107,14 +107,52 @@ if (typeof dialog.showModal === 'function') {
   }
 }
 
-const animationButton = document.querySelector('[data-gif]');
+const animationButton = document.querySelector('[data-video]');
 if (animationButton) {
-  const preview = document.querySelector('.gif-preview');
+  const preview = document.querySelector('video.gif-preview');
+  // Enable autoplay only after checking motion preferences. Keeping it out of
+  // the HTML prevents early playback (and keeps the no-JS fallback still).
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const playbackNote = document.querySelector('[data-playback-note]');
+  preview.controls = false;
+  animationButton.hidden = false;
+  const updatePlayback = () => {
+    const playing = !preview.paused;
+    animationButton.setAttribute('aria-pressed', String(playing));
+    animationButton.textContent = playing ? 'Pause drop animation' : 'Play drop animation';
+    playbackNote.textContent = playing
+      ? 'Squad-drop animation · looping silently. Pause any time.'
+      : 'Squad-drop animation · paused. Play when ready.';
+  };
+  const playAnimation = async () => {
+    try {
+      await preview.play();
+    } catch {
+      // Browser policy or decoding failure: leave a usable manual fallback.
+      preview.autoplay = false;
+      preview.pause();
+      updatePlayback();
+      playbackNote.textContent = 'Squad-drop animation · press Play to start.';
+    }
+  };
+  preview.addEventListener('play', updatePlayback);
+  preview.addEventListener('pause', updatePlayback);
   animationButton.addEventListener('click', () => {
-    const play = animationButton.getAttribute('aria-pressed') !== 'true';
-    preview.src = play ? animationButton.dataset.gif : animationButton.dataset.poster;
-    animationButton.setAttribute('aria-pressed', String(play));
-    animationButton.textContent = play ? 'Pause drop animation' : 'Play drop animation';
-    preview.alt = play ? 'Original animated squad beacon drop' : 'Still frame from the original beacon drop animation';
+    if (!preview.paused) {
+      preview.pause();
+      return;
+    }
+    void playAnimation();
   });
+  reducedMotion.addEventListener('change', event => {
+    if (event.matches) {
+      preview.autoplay = false;
+      preview.pause();
+    }
+  });
+  updatePlayback();
+  if (!reducedMotion.matches) {
+    preview.autoplay = true;
+    void playAnimation();
+  }
 }
