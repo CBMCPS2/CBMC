@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    background-color: #152130;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  
+  }
+    
+    .logo {
+      float: top;
+      height: 128px;
+      width: 128px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .navigation-bar {
+      content: "";
+      clear: both;
+      display: table;
+      background: linear-gradient(black, rgb(96, 26, 167));
+      min-height: 70px;
+      width: 100%;
+    }
+    
+    .navigation-bar ul {
+      position: relative;
+      padding: 0px;
+      
+      margin: 0px;
+      text-align: center;
+      float: top;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgb(15, 1, 29);
+    }
+    
+    .navigation-bar li {
+      list-style-type: none;
+      padding: 0px;
+      height: 24px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      display: inline;
+    }
+    
+    .navigation-bar li a {
+      color: rgb(248, 248, 248);
+      font-size: 1.5em;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      line-height: 70px;
+      display: inline;
+      padding: 5px 15px;
+      opacity: 0.7;
+    }
+    .navigation-bar li a:hover{
+        background-color: aliceblue;
+        color: #000;
+    }
+    .navigation-bar li a.active{
+      transform: skew(20deg);
+      background-color: #152130;
+      color: rgb(0, 0, 0);
+      font-size: 2em;
+      text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+    }
+  
+    .content{
+      background-color: #152130;
+      width: 100%;       
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+    }
+    .class-bar{
+        content: "";
+        clear: both;
+        min-height: 70px;
+        width: 50%;
+        float: left;
+    }
+
+    .class-bar ul {
+        position: relative;
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        float: top;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .class-bar li a {
+        color: rgb(248, 248, 248);
+        font-size: 1.5em;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        line-height: 70px;
+        display: inline;
+        padding: 5px 15px;
+        opacity: 0.7;
+    }
+    .class-bar li a:hover{
+        background-color: rgb(207, 45, 180);
+        color: #000;
+    }
+    .class-bar img{
+      max-width: 75px;
+      height: auto;
+    }
+    .vehicles-bar{
+        content: "";
+        clear: both;
+        display: inline-block;
+        min-height: 70px;
+        width: 50%;
+
+    }
+
+    .vehicles-bar ul {
+        position: relative;
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        float: top;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .vehicles-bar li a {
+        color: rgb(248, 248, 248);
+        font-size: 1.5em;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        line-height: 70px;
+        display: inline;
+        padding: 5px 15px;
+        opacity: 0.7;
+    }
+    .vehicles-bar li a:hover{
+        background-color: rgb(207, 45, 180);
+        color: #000;
+    }
+    .vehicles-bar img{
+        max-width: 75px;
+        height: auto;
+    }
+    footer {
+      content: "";
+      clear: both;
+      display: table;
+      text-align: center;
+      background: linear-gradient( rgb(50, 13, 87),black);
+      width: 100%;
+      margin-top: auto;
+    }
+    .footer-logo{
+      float: top;
+      height: 128px;
+      width: 128px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+   }
