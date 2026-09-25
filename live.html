@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Load the current CBMC online roster directly from Daybreak Census.">
+  <meta name="theme-color" content="#0b0c14">
+  <link rel="canonical" href="https://cbmcps2.github.io/CBMC/live.html">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CBMC – Vanu Outfit">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://cbmcps2.github.io/CBMC/live.html">
+  <meta property="og:title" content="Live Ops — CBMC – Vanu Outfit">
+  <meta property="og:description" content="Load the current CBMC online roster directly from Daybreak Census.">
+  <meta property="og:image" content="https://cbmcps2.github.io/CBMC/media/cbmc-share.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Live Ops — CBMC – Vanu Outfit">
+  <meta name="twitter:description" content="Load the current CBMC online roster directly from Daybreak Census.">
+  <meta name="twitter:image" content="https://cbmcps2.github.io/CBMC/media/cbmc-share.jpg">
+  <title>Live Ops — CBMC – Vanu Outfit</title>
+  <link rel="icon" href="pic/CBMC_logo.png">
+  <link rel="stylesheet" href="css/hq.css">
+  <script src="app.js" defer></script>
+  <script src="live.js" defer></script>
+</head>
+<body class="live-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner wrap">
+    <a class="brand" href="index.html" aria-label="CBMC home"><img src="pic/CBMC_logo.png" width="128" height="128" alt="CBMC outfit logo" class="brand-logo" decoding="async" loading="eager"><span>CBMC<small>VANU OUTFIT</small></span></a>
+    <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="primary-nav" aria-label="Primary"><a href="index.html">Outfit</a><a href="rule.html">Field code</a><a href="beacon.html">Beacons</a><a href="redeploy.html">Redeploy</a><a href="guide.html">Guides</a><a href="live.html" aria-current="page">Live Ops</a><a href="join.html">Join CBMC</a></nav>
+  </div></header>
+  <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="index.html">HQ</a><span>/</span><span aria-current="page">Live Ops</span></nav>
+  <main id="main" tabindex="-1">
+    <section class="page-intro wrap live-intro"><div><p class="eyebrow">VANU COMMAND / LIVE OPS</p><h1>CBMC online.<br>Right now.</h1><p class="lead">Request the complete roster directly from Daybreak Census. No CBMC server receives or stores the result.</p></div></section>
+    <section class="wrap live-layout">
+      <div class="panel live-control">
+        <p class="eyebrow">CENSUS UPLINK</p>
+        <h2>Live roster request</h2>
+        <p>This checks every roster page; CBMC has more than 5,000 members. A two-minute browser cache prevents repeat requests while the data is still fresh.</p>
+        <button id="load-roster" type="button" class="button primary">Load live roster</button>
+        <p id="roster-status" class="live-status" role="status">No live request has been made in this browser.</p>
+        <p class="muted">Source: <a class="text-link" href="https://census.daybreakgames.com/" target="_blank" rel="noopener">Daybreak Census API ↗</a></p>
+      </div>
+      <aside class="panel live-summary" aria-labelledby="summary-heading">
+        <p class="eyebrow">CURRENT SNAPSHOT</p>
+        <h2 id="summary-heading"><output id="online-count">—</output> online</h2>
+        <p><output id="member-count">—</output> members checked</p>
+        <p class="muted">Last successful request: <time id="roster-updated">Not loaded</time></p>
+      </aside>
+    </section>
+    <section class="wrap live-roster-section" aria-labelledby="roster-heading">
+      <div class="section-heading"><div><p class="eyebrow">ACTIVE MEMBERS</p><h2 id="roster-heading">Online roster</h2></div></div>
+      <ul id="online-roster" class="online-roster" aria-live="polite"><li class="roster-empty">Load the roster to see active CBMC members.</li></ul>
+      <noscript><p class="panel">Live Ops needs JavaScript because Daybreak Census is queried directly from your browser.</p></noscript>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><div class="footer-top"><img src="pic/VS%20logo.png" width="861" height="927" alt="Vanu Sovereignty emblem" class="faction-mark" decoding="async" loading="lazy"><div><strong>FOR THE VANU.</strong><p>Fight together. Learn together.</p></div><a class="text-link" href="join.html">Find your place ↗</a></div><div class="footer-bottom"><p>CBMC – Vanu Outfit · Independent PlanetSide 2 fan project.<br>Original CBMC community text, artwork and loadout references retained; game imagery belongs to its respective owners.</p><p><a href="http://cbmc.jerrycs.win/index.html" rel="noreferrer">Original community source ↗</a></p></div></footer>
+</body>
+</html>
