@@ -47,6 +47,11 @@ function memberName(member) {
   return member.character_id_join_character?.name?.first || member.character_id || 'Unknown member';
 }
 
+function outfitRank(member) {
+  const rank = String(member.rank || '').trim();
+  return rank || 'Unranked';
+}
+
 function worldName(member) {
   const worldId = String(member.character_id_join_characters_online_status?.online_status || '');
   return ({'1': 'Connery', '10': 'Wainwright', '13': 'Cobalt', '17': 'Emerald', '19': 'Jaeger'})[worldId] || `World ${worldId}`;
@@ -74,10 +79,14 @@ function render(data, fromCache = false) {
     for (const member of online) {
       const item = document.createElement('li');
       const name = document.createElement('strong');
+      const rank = document.createElement('span');
       const world = document.createElement('span');
       name.textContent = memberName(member);
+      rank.className = 'roster-rank';
+      rank.textContent = outfitRank(member);
+      world.className = 'roster-world';
       world.textContent = worldName(member);
-      item.append(name, world);
+      item.append(name, rank, world);
       roster.append(item);
     }
   }
