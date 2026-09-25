@@ -62,7 +62,10 @@ function isOnline(member) {
 }
 
 function render(data, fromCache = false) {
-  const online = data.members.filter(isOnline).sort((a, b) => memberName(a).localeCompare(memberName(b)));
+  const online = data.members.filter(isOnline).sort((a, b) => {
+    const rankDifference = Number(a.rank_ordinal) - Number(b.rank_ordinal);
+    return rankDifference || memberName(a).localeCompare(memberName(b));
+  });
   count.textContent = String(online.length);
   total.textContent = String(data.members.length);
   updated.textContent = new Intl.DateTimeFormat('en-GB', {
