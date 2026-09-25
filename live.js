@@ -71,23 +71,26 @@ function render(data, fromCache = false) {
   roster.replaceChildren();
 
   if (!online.length) {
-    const item = document.createElement('li');
-    item.className = 'roster-empty';
-    item.textContent = 'No CBMC members are online right now.';
-    roster.append(item);
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    row.className = 'roster-empty';
+    cell.colSpan = 3;
+    cell.textContent = 'No CBMC members are online right now.';
+    row.append(cell);
+    roster.append(row);
   } else {
     for (const member of online) {
-      const item = document.createElement('li');
-      const name = document.createElement('strong');
-      const rank = document.createElement('span');
-      const world = document.createElement('span');
+      const row = document.createElement('tr');
+      const name = document.createElement('td');
+      const rank = document.createElement('td');
+      const world = document.createElement('td');
       name.textContent = memberName(member);
       rank.className = 'roster-rank';
       rank.textContent = outfitRank(member);
       world.className = 'roster-world';
       world.textContent = worldName(member);
-      item.append(name, rank, world);
-      roster.append(item);
+      row.append(name, rank, world);
+      roster.append(row);
     }
   }
 

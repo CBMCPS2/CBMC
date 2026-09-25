@@ -41,7 +41,7 @@
         <p>This checks every roster page; CBMC has more than 5,000 members. A two-minute browser cache prevents repeat requests while the data is still fresh.</p>
         <button id="load-roster" type="button" class="button primary">Load live roster</button>
         <p id="roster-status" class="live-status" role="status">No live request has been made in this browser.</p>
-        <p class="muted">Source: <a class="text-link" href="https://census.daybreakgames.com/" target="_blank" rel="noopener">Daybreak Census API ↗</a></p>
+
       </div>
       <aside class="panel live-summary" aria-labelledby="summary-heading">
         <p class="eyebrow">CURRENT SNAPSHOT</p>
@@ -52,7 +52,14 @@
     </section>
     <section class="wrap live-roster-section" aria-labelledby="roster-heading">
       <div class="section-heading"><div><p class="eyebrow">ACTIVE MEMBERS</p><h2 id="roster-heading">Online roster</h2></div></div>
-      <ul id="online-roster" class="online-roster" aria-live="polite"><li class="roster-empty">Load the roster to see active CBMC members.</li></ul>
+      <div class="table-wrap">
+        <table class="online-roster">
+          <thead>
+            <tr><th scope="col">Name</th><th scope="col">Outfit rank</th><th scope="col">World</th></tr>
+          </thead>
+          <tbody id="online-roster" aria-live="polite"><tr class="roster-empty"><td colspan="3">Load the roster to see active CBMC members.</td></tr></tbody>
+        </table>
+      </div>
       <noscript><p class="panel">Live Ops needs JavaScript because Daybreak Census is queried directly from your browser.</p></noscript>
     </section>
   </main>
